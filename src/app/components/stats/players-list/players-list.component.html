@@ -1,0 +1,16 @@
+<h2>Players</h2>
+
+<table class="table table-dark" *ngFor="let resultSets of items">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" *ngFor="let header of resultSets.headers | statsFilter:filterargs.propNames">{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rowSet of resultSets.rowSet; let i=index" [routerLink]="['/detail', rowSet[0]]">
+      <th scope="row">{{i}}</th>
+      <td *ngFor="let item of rowSet | statsFilterByIndex:filterargs.indexes">{{item}}</td>
+    </tr>
+  </tbody>
+</table>

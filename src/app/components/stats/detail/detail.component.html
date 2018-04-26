@@ -1,0 +1,11 @@
+<div class="col-sm">
+  <h2>Player</h2>
+  <div class="card" style="width: 18rem;" *ngIf="filterargs">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let item of filterargs.propNames; let i=index">
+        {{item}}: 
+        {{item == 'BIRTHDATE' ? (filterargs.data[i] | date) : (filterargs.data[i])}}
+      </li>
+    </ul>
+  </div>
+</div>
